@@ -4,23 +4,26 @@ def validar_calificacion(mensaje):
     """
     Función para validar una calificación.
     """
-    while True:
+    calificacion_valida = False
+    while not calificacion_valida:
         try:
             # Solicitar al usuario que ingrese una calificación
             calificacion = round(float(input(mensaje)), 2)
             # Validar que la calificación esté entre 0 y 100
             if 0 <= calificacion <= 100:
-                return calificacion
+                calificacion_valida = True
             else:
                 print("La calificación debe estar entre 0 y 100. Inténtalo de nuevo.")
         except ValueError:
             print("Entrada inválida. Ingresa un número válido.")
+    return calificacion
 
 def validar_calificacion_inicial(mensaje):
     """
     Función para validar una calificación y determinar su estado.
     """
-    while True:
+    calificacion_valida = False
+    while not calificacion_valida:
         try:
             # Solicitar al usuario que ingrese una calificación
             calificacion = round(float(input(mensaje)), 2)
@@ -33,11 +36,12 @@ def validar_calificacion_inicial(mensaje):
                     print(f"La calificación {calificacion} es válida y su estado es: Requiere nivelación")
                 else:
                     print(f"La calificación {calificacion} es válida y su estado es: Reprobado")
-                return calificacion
+                calificacion_valida = True
             else:
                 print("La calificación debe estar entre 0 y 100. Inténtalo de nuevo.")
         except ValueError:
             print("Entrada inválida. Ingresa un número válido.")
+    return calificacion
 
 def procesar_lista_de_calificaciones(lista):
     """
