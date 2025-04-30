@@ -76,7 +76,8 @@ estado_aprobacion = Estado_de_Aprobacion(calificacion_inicial) # Determinar el e
 lista_calificaciones = Validar_Lista_de_Calificaciones() # Validar la lista de calificaciones
 promedio = Promedio_de_Calificaciones(lista_calificaciones) # Calcular el promedio de las calificaciones
 calificacion_de_comparacion = Validar_Calificacion("Ingresa la calificación para comparar: ") # Validar la calificación de comparación
-calificaciones_mayores, cantidad_calificaciones_mayores = Conteo_Calificaciones_Mayores(lista_calificaciones) # Almacenar y contar las calificaciones mayores a la calificación de comparación
+calificaciones_mayores = Conteo_Calificaciones_Mayores(lista_calificaciones)[0] # Almacenar las calificaciones mayores a la calificación de comparación
+cantidad_calificaciones_mayores = Conteo_Calificaciones_Mayores(lista_calificaciones)[1] # Contar las calificaciones mayores a la calificación de comparación
 calificaciones_iguales = Conteo_Calificaciones_Iguales(lista_calificaciones) # Contar las calificaciones iguales a la calificación de comparación
 
 # Mostrar toda la información de las calificaciones
