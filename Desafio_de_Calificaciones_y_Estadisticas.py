@@ -43,54 +43,62 @@ def validar_calificacion_inicial(mensaje):
             print("Entrada inválida. Ingresa un número válido.")
     return calificacion
 
+
 def procesar_lista_de_calificaciones(lista):
     """
     Función que procesa una lista de calificaciones ingresadas por el usuario.
     Permite corregir calificaciones inválidas y asegura que todas estén en el rango 0-100.
     """
-    lista_c: str = input(lista)
     lista_f: list[float] = []
-    numero_temporal: str = ""
-    numeros_incorrectos: list[str] = []
-    caracteres_permitidos = "0123456789."
 
-    # Procesar la entrada inicial
-    for caracter in lista_c:
-        if caracter == ',' or caracter == ';':
-            if numero_temporal:
-                try:
-                    numero = round(float(numero_temporal), 2)
-                    if 0 <= numero <= 100:
-                        lista_f.append(numero)
-                    else:
-                        print(f"Advertencia: La calificación {numero} está fuera del rango 0-100")
+    while len(lista_f) == 0:
+        lista_c: str = input(lista)
+        numero_temporal: str = ""
+        numeros_incorrectos: list[str] = []
+        caracteres_permitidos = "0123456789."
+
+        # Procesar la entrada inicial
+        for caracter in lista_c:
+            if caracter == ',' or caracter == ';':
+                if numero_temporal:
+                    try:
+                        numero = round(float(numero_temporal), 2)
+                        if 0 <= numero <= 100:
+                            lista_f.append(numero)
+                        else:
+                            print(f"Advertencia: La calificación {numero} está fuera del rango 0-100")
+                            numeros_incorrectos.append(numero_temporal)
+                    except ValueError:
+                        print(f"Advertencia: '{numero_temporal}' no es un número válido")
                         numeros_incorrectos.append(numero_temporal)
-                except ValueError:
-                    print(f"Advertencia: '{numero_temporal}' no es un número válido")
-                    numeros_incorrectos.append(numero_temporal)
-                numero_temporal = ""
-        else:
-            if caracter in caracteres_permitidos:
-                numero_temporal += caracter
-
-    # Procesar el último número
-    if numero_temporal:
-        try:
-            numero = round(float(numero_temporal.strip()), 2)
-            if 0 <= numero <= 100:
-                lista_f.append(numero)
+                    numero_temporal = ""
             else:
-                print(f"Advertencia: La calificación {numero} está fuera del rango 0-100")
-                numeros_incorrectos.append(numero_temporal.strip())
-        except ValueError:
-            print(f"Advertencia: '{numero_temporal.strip()}' no es un número válido")
-            numeros_incorrectos.append(numero_temporal.strip())
+                if caracter in caracteres_permitidos:
+                    numero_temporal += caracter
 
-    # Solicitar corrección de números incorrectos
-    if numeros_incorrectos:
-        for numero in numeros_incorrectos:
-            calificacion_corregida = validar_calificacion(f"La calificación '{numero}' es incorrecta. Ingresa una calificación válida: ")
-            lista_f.append(calificacion_corregida)
+        # Procesar el último número
+        if numero_temporal:
+            try:
+                numero = round(float(numero_temporal.strip()), 2)
+                if 0 <= numero <= 100:
+                    lista_f.append(numero)
+                else:
+                    print(f"Advertencia: La calificación {numero} está fuera del rango 0-100")
+                    numeros_incorrectos.append(numero_temporal.strip())
+            except ValueError:
+                print(f"Advertencia: '{numero_temporal.strip()}' no es un número válido")
+                numeros_incorrectos.append(numero_temporal.strip())
+
+        # Solicitar corrección de números incorrectos
+        if numeros_incorrectos:
+            for numero in numeros_incorrectos:
+                calificacion_corregida = validar_calificacion(
+                    f"La calificación '{numero}' es incorrecta. Ingresa una calificación válida: ")
+                lista_f.append(calificacion_corregida)
+
+        # Si la lista está vacía después de procesar, informar al usuario
+        if len(lista_f) == 0:
+            print("La lista de calificaciones está vacía. Por favor, ingresa al menos una calificación válida.")
     return lista_f
 
 def calcular_promedio(lista_de_calificaciones):
