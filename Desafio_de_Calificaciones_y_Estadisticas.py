@@ -78,7 +78,7 @@ promedio = Promedio_de_Calificaciones(lista_calificaciones) # Calcular el promed
 calificacion_de_comparacion = Validar_Calificacion("Ingresa la calificación para comparar: ") # Validar la calificación de comparación
 calificaciones_mayores = Conteo_Calificaciones_Mayores(lista_calificaciones)[0] # Almacenar las calificaciones mayores a la calificación de comparación
 cantidad_calificaciones_mayores = Conteo_Calificaciones_Mayores(lista_calificaciones)[1] # Contar las calificaciones mayores a la calificación de comparación
-calificaciones_iguales = Conteo_Calificaciones_Iguales(lista_calificaciones) # Contar las calificaciones iguales a la calificación de comparación
+cantidad_calificaciones_iguales = Conteo_Calificaciones_Iguales(lista_calificaciones) # Contar las calificaciones iguales a la calificación de comparación
 
 # Mostrar toda la información de las calificaciones
 print(f"""=====================================
@@ -90,4 +90,4 @@ Información de las Calificaciones:
 - Promedio de las Calificaciones: {promedio}
 - Calificación de Comparación: {calificacion_de_comparacion}
 - Número de Calificaciones Mayores a {calificacion_de_comparacion}: {cantidad_calificaciones_mayores} ---> {calificaciones_mayores}
-- Número de Calificaciones Iguales a {calificacion_de_comparacion}: {calificaciones_iguales}""")
+- Número de Calificaciones Iguales a {calificacion_de_comparacion}: {cantidad_calificaciones_iguales}""")
