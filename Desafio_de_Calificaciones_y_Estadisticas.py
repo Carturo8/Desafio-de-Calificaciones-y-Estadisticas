@@ -27,11 +27,13 @@ def Estado_de_Aprobacion(calificacion_inicial):
     else:
         return "Reprobado"
 
+lista_c = input("Ingresa las calificaciones separadas por comas: ")
+
 def Validar_Lista_de_Calificaciones():
     """
     Función para obtener una lista de calificaciones.
     """
-    lista = []
+    lista:list[float] = []
     for i in range(1, 6, 1):
         # Validar la calificación
         calificaciones = Validar_Calificacion(f"Ingresa la calificación No.{i}: ")
