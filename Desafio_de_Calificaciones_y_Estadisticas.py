@@ -53,7 +53,7 @@ def Conteo_Calificaciones_Mayores(lista_calificaciones):
     """
     Función para almacenar y contar las calificaciones mayores a un valor de comparación.
     """
-    calificaciones_mayores = []
+    calificaciones_mayores:list[float] = []
     cantidad_calificaciones_mayores:float = 0
     contador:int = 0
     while contador < len(lista_calificaciones):
