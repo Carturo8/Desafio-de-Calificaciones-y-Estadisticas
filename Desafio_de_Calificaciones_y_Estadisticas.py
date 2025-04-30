@@ -100,11 +100,9 @@ def calcular_promedio(lista_de_calificaciones):
     # Validar que la lista no esté vacía
     if not lista_de_calificaciones:
         return 0.0
-
     suma: float = 0.0
     for calificacion in lista_de_calificaciones:
         suma += calificacion
-
     return round(suma / len(lista_de_calificaciones), 2)
 
 def contar_calificaciones_mayores(lista_de_calificaciones, valor_de_comparacion):
